@@ -1,0 +1,28 @@
+
+body{
+    font-family:courier, georgia, sans-serif;
+}
+
+h1{
+    color:purple;
+    text-align: center;
+    
+}
+.startButton,
+.tryAgain{
+    text-align: center;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}
+.timer,
+.scoreLink,
+.scoreBox{
+    padding:3px;
+    margin:3px;
+    font-size: 20px;
+    margin-top: 8px;
+    color: purple;
+    text-decoration: none;
+}
