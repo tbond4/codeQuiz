@@ -1,3 +1,4 @@
+// define variables
 var startButton = document.querySelector(".startButton");
 var question =document.querySelector(".question");
 var timer = document.querySelector(".timer");
@@ -16,6 +17,8 @@ var scoreDisplay = document.querySelector(".ScoreDisplay");
 var saveScoreButton= document.querySelector(".saveScores");
 var modal = document.querySelector(".modal");
 var closeButton = document.querySelector(".close");
+
+//create question and answers array
 var questionArr=["Choose the correct HTML element for the largest heading:", "Which HTML element defines navigation links?", "What does CSS stand for?", "Where in an HTML document is the correct place to refer to an external style sheet?", "How do you insert a comment in a CSS file?"];
 var answersArr=[
     ["A. <heading>", "B. <title>", "C. <h1>","D. <h8>"],
@@ -28,6 +31,8 @@ var correctAns=["C","A","D","B","D"];
 
 var timeleft;
 var i;
+
+// method for starting the quiz
 function startQuiz(){
     timeleft=100;
     i=0;
@@ -45,7 +50,7 @@ displayQuiz();
 
 
 }
-
+//method for displaying questrions and answers
 function displayQuiz(){
     if(i==5){
         question.textContent="";
@@ -68,7 +73,7 @@ function displayQuiz(){
    i++;
   
 ;}
-
+//method for when the quiz is finished
 function finalScreen(){
     title.textContent="All Done!"
     question.textContent="Your score: " + timeleft;
@@ -77,6 +82,8 @@ function finalScreen(){
     saveScoreButton.style.display="block";
     localStorage.setItem("score", timeleft);
 }
+
+//buttton listeners
 startButton.addEventListener("click", startQuiz);
 answersEl.addEventListener("click", function(event){
    
@@ -92,6 +99,7 @@ answersEl.addEventListener("click", function(event){
     }
     displayQuiz();
 });
+
 saveScoreButton.addEventListener("click", function(event){
     event.stopPropagation();
     event.preventDefault();
@@ -105,15 +113,7 @@ closeButton.addEventListener("click", function(event){
     event.stopPropagation;
     
     localStorage.setItem("sinitials",initials.value);
-    // addscore();
+    
     modal.style.display="none";
     
 })
-// function addscore(){
-//     console.log("test")
-// var newItem= document.createElement("div");
-// newItem.textContent=localStorage.getItem("sinitials") + " " + localStorage.getItem("score");
-// console.log(localStorage.getItem("initials"));
-// scoreDisplay.append(newItem);
-
-// }
